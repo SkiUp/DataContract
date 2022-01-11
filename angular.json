@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "@skiup/datacontracts": {
+      "projectType": "library",
+      "root": "projects/skiup/datacontracts",
+      "sourceRoot": "projects/skiup/datacontracts/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/skiup/datacontracts/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/skiup/datacontracts/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/skiup/datacontracts/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/skiup/datacontracts/src/test.ts",
+            "tsConfig": "projects/skiup/datacontracts/tsconfig.spec.json",
+            "karmaConfig": "projects/skiup/datacontracts/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "@skiup/datacontracts"
 }
